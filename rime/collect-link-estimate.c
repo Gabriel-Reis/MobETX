@@ -1,7 +1,3 @@
-/**
- * \addtogroup rimelinkestimate
- * @{
- */
 /*
  * Copyright (c) 2010, Swedish Institute of Computer Science.
  * All rights reserved.
@@ -41,6 +37,11 @@
  *         Adam Dunkels <adam@sics.se>
  */
 
+/**
+ * \addtogroup rimelinkestimate
+ * @{
+ */
+
 #include "net/rime/collect.h"
 #include "net/rime/collect-link-estimate.h"
 
@@ -52,16 +53,14 @@
 
 #define DEBUG 1
 #if DEBUG
-#include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
 #else
 #define PRINTF(...)
 #endif
 
-
+#include <stdio.h>
 int mem[10][2];
 int mem_b = 0;
-
 
 /*---------------------------------------------------------------------------*/
 void
@@ -94,16 +93,17 @@ collect_link_estimate_update_tx(struct collect_link_estimate *le, uint8_t tx)
     }
 
     int emm = estimated_mobility_metric()* COLLECT_LINK_ESTIMATE_UNIT;
-    le->etx_accumulator = ((((uint32_t)tx * COLLECT_LINK_ESTIMATE_UNIT) *
+    le->etx_accumulator = (((uint32_t)tx * COLLECT_LINK_ESTIMATE_UNIT) *
                            COLLECT_LINK_ESTIMATE_ALPHA +
                            le->etx_accumulator * (COLLECT_LINK_ESTIMATE_UNIT -
                                                   COLLECT_LINK_ESTIMATE_ALPHA)) /
-      COLLECT_LINK_ESTIMATE_UNIT);
+      COLLECT_LINK_ESTIMATE_UNIT;
 
-    //PRINTF("ETX %d.%d ===  %u",rimeaddr_node_addr.u8[0], rimeaddr_node_addr.u8[1],le->etx_accumulator);
     int mobetx = emm+le->etx_accumulator;
-    PRINTF("ETX %d.%d ===  %u EMM == %d MOBETX==%u\n",rimeaddr_node_addr.u8[0], rimeaddr_node_addr.u8[1],le->etx_accumulator, emm, mobetx);
-    le->etx_accumulator+=emm;
+    //Id ERROR in 3.0
+    //id: rimeaddr_node_addr.u8[0], rimeaddr_node_addr.u8[1]
+    PRINTF("ETX ===  %u EMM == %d MOBETX==%u\n",le->etx_accumulator, emm, mobetx);
+    //le->etx_accumulator;
 
   }
 }
@@ -157,6 +157,7 @@ read_estimated_mobility_metric()
     PRINTF("emm.txt ERRO AO LER ARQUIVO\n");
   }
   else{
+    PRINTF("emm.txt lido com sucesso\n");
     int i = 0;
     while(!feof(arq)){
       //IF PARA SOMENTE SEUS DADOS
@@ -173,6 +174,6 @@ estimated_mobility_metric()
 {
   if(mem_b == 0)
     read_estimated_mobility_metric();
-  int id = rimeaddr_node_addr.u8[0];
-  return (mem[id-1][0]+mem[id-1][1]);
+  //int id = rimeaddr_node_addr.u8[0];
+  return (mem[1][0]+mem[1][1]);
 }

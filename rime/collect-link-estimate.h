@@ -1,17 +1,3 @@
-/**
- * \addtogroup rime
- * @{
- */
-/**
- * \defgroup rimelinkestimate Link estimate management
- *
- * The link estimate module is used for computing estimations of link
- * quality. It computes a quality index for links, based on
- * information about how many times a packet has been transmitted, as
- * well as information about incoming packets. The link estimate
- * module exposes an interface that provides functions that are called
- * for incoming and outgoing packets.
- */
 /*
  * Copyright (c) 2010, Swedish Institute of Computer Science.
  * All rights reserved.
@@ -51,10 +37,26 @@
  *         Adam Dunkels <adam@sics.se>
  */
 
+/**
+ * \addtogroup rime
+ * @{
+ */
+
+/**
+ * \defgroup rimelinkestimate Link estimate management
+ *
+ * The link estimate module is used for computing estimations of link
+ * quality. It computes a quality index for links, based on
+ * information about how many times a packet has been transmitted, as
+ * well as information about incoming packets. The link estimate
+ * module exposes an interface that provides functions that are called
+ * for incoming and outgoing packets.
+ */
+
 #ifndef COLLECT_LINK_ESTIMATE_H
 #define COLLECT_LINK_ESTIMATE_H
 
-#define COLLECT_LINK_ESTIMATE_UNIT           8
+#define COLLECT_LINK_ESTIMATE_UNIT           9
 
 
 
@@ -119,6 +121,7 @@ uint16_t collect_link_estimate(struct collect_link_estimate *le);
 
 int collect_link_estimate_num_estimates(struct collect_link_estimate *le);
 
+//PERSONAL FUNCTIONS
 void read_estimated_mobility_metric();
 int estimated_mobility_metric();
 
