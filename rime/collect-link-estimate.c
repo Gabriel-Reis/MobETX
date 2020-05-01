@@ -100,7 +100,7 @@ collect_link_estimate_update_tx(struct collect_link_estimate *le, uint8_t tx)
       COLLECT_LINK_ESTIMATE_UNIT;
 
     int mobetx = emm+le->etx_accumulator;
-    //Id ERROR in 3.0
+    
     //id: rimeaddr_node_addr.u8[0], rimeaddr_node_addr.u8[1]
     PRINTF("ETX ===  %u EMM == %d MOBETX==%u\n",le->etx_accumulator, emm, mobetx);
     //le->etx_accumulator;
@@ -161,7 +161,7 @@ read_estimated_mobility_metric()
     int i = 0;
     while(!feof(arq)){
       //IF PARA SOMENTE SEUS DADOS
-      fscanf(arq, "%d %d",&mem[i][0],&mem[i][1]);
+      fscanf(arq, "%d %d %d",&mem[i][0],&mem[i][1]);
       i++;
     }
     mem_b = 1;
