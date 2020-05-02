@@ -59,10 +59,16 @@
 #define COLLECT_LINK_ESTIMATE_UNIT           9
 
 
-
 struct collect_link_estimate {
   uint32_t etx_accumulator;
   uint8_t num_estimates;
+};
+
+//PERSONAL STRUCT
+struct MetricStruct {
+  int m1;
+  int m2;
+  struct MetricStruct *next;
 };
 
 /**
@@ -124,6 +130,8 @@ int collect_link_estimate_num_estimates(struct collect_link_estimate *le);
 //PERSONAL FUNCTIONS
 void read_estimated_mobility_metric();
 int estimated_mobility_metric();
+void insert_metric(struct MetricStruct *NewMetric);
+void print_metric();
 
 #endif /* COLLECT_LINK_ESTIMATE_H */
 

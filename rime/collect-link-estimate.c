@@ -59,8 +59,10 @@
 #endif
 
 #include <stdio.h>
-int mem[10][2];
+#include <stdlib.h>
+
 int mem_b = 0;
+struct MetricStruct *Metrics = NULL;
 
 /*---------------------------------------------------------------------------*/
 void
@@ -94,10 +96,10 @@ collect_link_estimate_update_tx(struct collect_link_estimate *le, uint8_t tx)
 
     int emm = estimated_mobility_metric()* COLLECT_LINK_ESTIMATE_UNIT;
     le->etx_accumulator = (((uint32_t)tx * COLLECT_LINK_ESTIMATE_UNIT) *
-                           COLLECT_LINK_ESTIMATE_ALPHA +
-                           le->etx_accumulator * (COLLECT_LINK_ESTIMATE_UNIT -
-                                                  COLLECT_LINK_ESTIMATE_ALPHA)) /
-      COLLECT_LINK_ESTIMATE_UNIT;
+     COLLECT_LINK_ESTIMATE_ALPHA +
+     le->etx_accumulator * (COLLECT_LINK_ESTIMATE_UNIT -
+      COLLECT_LINK_ESTIMATE_ALPHA)) /
+    COLLECT_LINK_ESTIMATE_UNIT;
 
     int mobetx = emm+le->etx_accumulator;
     
@@ -110,7 +112,7 @@ collect_link_estimate_update_tx(struct collect_link_estimate *le, uint8_t tx)
 /*---------------------------------------------------------------------------*/
 void
 collect_link_estimate_update_tx_fail(struct collect_link_estimate *le,
-                                     uint8_t tx)
+ uint8_t tx)
 {
   if(le == NULL) {
     return;
@@ -152,18 +154,26 @@ void
 read_estimated_mobility_metric()
 {
   FILE *arq;  
-  arq = fopen("../emm.txt","r");          /*  /home/user/contiki/tools/cooja */
+  arq = fopen("../../../core/net/emm.txt","r");          /*  /home/user/contiki/core/net */
   if(arq == NULL) {
     PRINTF("emm.txt ERRO AO LER ARQUIVO\n");
   }
   else{
     PRINTF("emm.txt lido com sucesso\n");
     int i = 0;
-    while(!feof(arq)){
-      //IF PARA SOMENTE SEUS DADOS
-      fscanf(arq, "%d %d %d",&mem[i][0],&mem[i][1]);
+    int id,m1,m2;
+    while(fscanf(arq, "%d %d %d",&id,&m1,&m2)!=EOF){
+      PRINTF("emm: %d\n",id);
+      if(m1 == 1){
+        struct MetricStruct *NewMetric = (struct MetricStruct*) malloc(sizeof(struct MetricStruct));
+        NewMetric->m1 = m1;
+        NewMetric->m2 = m2;
+        NewMetric->next = NULL;
+        insert_metric(&NewMetric);
+      }
       i++;
     }
+    print_metric();
     mem_b = 1;
   }
   fclose(arq);
@@ -175,5 +185,35 @@ estimated_mobility_metric()
   if(mem_b == 0)
     read_estimated_mobility_metric();
   //int id = rimeaddr_node_addr.u8[0];
-  return (mem[1][0]+mem[1][1]);
+  return (0);
+}
+
+void
+insert_metric(struct MetricStruct *NewMetric)
+{
+  if(Metrics != NULL){
+    struct MetricStruct *aux = Metrics;
+    while (aux->next != NULL){
+      aux = aux->next;
+    }
+    aux->next = NewMetric;
+  }
+  else
+    Metrics = NewMetric;
+}
+
+void
+print_metric(){
+  if(Metrics != NULL){
+    struct MetricStruct *aux = Metrics;
+    PRINTF("emm.txt: ");
+    while (aux->next != NULL){
+      PRINTF("-- %d-%d ",aux->m1, aux->m2);
+      aux = aux->next;
+    }
+    PRINTF("\n");
+  }
+  else
+    PRINTF("emm:   VECTOR NULL \n");
+
 }
