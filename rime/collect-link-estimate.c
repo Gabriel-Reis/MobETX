@@ -163,20 +163,19 @@ read_estimated_mobility_metric()
     int i = 0;
     int id,m1,m2;
     while(fscanf(arq, "%d %d %d",&id,&m1,&m2)!=EOF){
-      PRINTF("emm: %d\n",id);
-      if(m1 == 1){
-        struct MetricStruct *NewMetric = (struct MetricStruct*) malloc(sizeof(struct MetricStruct));
-        NewMetric->m1 = m1;
-        NewMetric->m2 = m2;
-        NewMetric->next = NULL;
-        insert_metric(&NewMetric);
-      }
-      i++;
+     if(id == ( linkaddr_node_addr.u8[0]+linkaddr_node_addr.u8[1]*10) ){
+      struct MetricStruct *NewMetric = (struct MetricStruct*) malloc(sizeof(struct MetricStruct));
+      NewMetric->m1 = m1;
+      NewMetric->m2 = m2;
+      NewMetric->next = NULL;
+      insert_metric(NewMetric);
     }
-    print_metric();
-    mem_b = 1;
+    i++;
   }
-  fclose(arq);
+  print_metric();
+  mem_b = 1;
+}
+fclose(arq);
 }
 
 int
