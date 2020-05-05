@@ -56,7 +56,7 @@
 #ifndef COLLECT_LINK_ESTIMATE_H
 #define COLLECT_LINK_ESTIMATE_H
 
-#define COLLECT_LINK_ESTIMATE_UNIT           9
+#define COLLECT_LINK_ESTIMATE_UNIT           8
 
 
 struct collect_link_estimate {
@@ -126,12 +126,41 @@ uint16_t collect_link_estimate(struct collect_link_estimate *le);
 
 int collect_link_estimate_num_estimates(struct collect_link_estimate *le);
 
+
+
 //PERSONAL FUNCTIONS
+/**
+ * \brief      Read from a txt file the emm
+ *
+ *			   This function reads the .txt file and make the struct
+ *			   MetricStruct and call insert_metric function
+ */
 void read_estimated_mobility_metric();
+
+
+/**
+ * \brief      Return the actual EMM value
+ * \return     The current EMM value
+ *
+ */
 int estimated_mobility_metric();
+
+
+/**
+ * \brief      Insert a Node into the linked list
+ * \param le   A node to insert (MetricStruct)
+ *
+ *			   Inert a new node at the end of the linked list
+ */
 void insert_metric(struct MetricStruct *NewMetric);
+
+
+/**
+ * \brief      Print all EMM's reads from the .txt to the current node
+ *
+ *			   Print the list with all EMM values, used to debug
+ */
 void print_metric();
 
 #endif /* COLLECT_LINK_ESTIMATE_H */
-
 /** @} */

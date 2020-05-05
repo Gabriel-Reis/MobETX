@@ -327,7 +327,8 @@ update_parent(struct collect_conn *tc)
       bump_advertisement(tc);
     } else {
       if(DRAW_TREE) {
-        PRINTF("#A e=%d\n", collect_neighbor_link_estimate(best));
+        PRINTF("#A e=%d (ETX DO PAI)\n"
+          ,collect_neighbor_link_estimate(best));
       }
       if(collect_neighbor_rtmetric_link_estimate(best) +
          SIGNIFICANT_RTMETRIC_PARENT_CHANGE <
@@ -346,7 +347,8 @@ update_parent(struct collect_conn *tc)
         bump_advertisement(tc);
 
         if(DRAW_TREE) {
-          PRINTF("#A e=%d\n", collect_neighbor_link_estimate(best));
+          PRINTF("#A e=%d (ETX DO PAI)\n"
+          ,collect_neighbor_link_estimate(best));
           /*          {
             int i;
             int etx = 0;
@@ -443,7 +445,7 @@ update_rtmetric(struct collect_conn *tc)
 #endif /* COLLECT_ANNOUNCEMENTS */
 
     }
-    PRINTF("%d.%d: new rtmetric %d\n",
+    PRINTF("%d.%d: new rtmetric %d (Resultado do acumulador OU INITIAL_LINK_ESTIMATE*LINK_ESTIMATE_UNIT)\n",
            linkaddr_node_addr.u8[0], linkaddr_node_addr.u8[1],
            tc->rtmetric);
     
