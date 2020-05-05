@@ -66,8 +66,7 @@ struct collect_link_estimate {
 
 //PERSONAL STRUCT
 struct MetricStruct {
-  int m1;
-  int m2;
+  float emm;
   struct MetricStruct *next;
 };
 
