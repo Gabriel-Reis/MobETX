@@ -1,8 +1,6 @@
 #  MOBETX
 ## Fórmula do MOBETX (ATUAL)
-"
-	VisitTime + LinkDuration
-"
+" VisitTime + LinkDuration "
 
 #  Fórmula ETX (Contiki)
 ## Fórmula que o contiki usa para calcular a ETX
