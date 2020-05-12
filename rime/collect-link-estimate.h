@@ -64,10 +64,17 @@ struct collect_link_estimate {
   uint8_t num_estimates;
 };
 
-//PERSONAL STRUCT
+//PERSONAL STRUCTS
 struct MetricStruct {
   float emm;
+  int time;
   struct MetricStruct *next;
+};
+
+struct MetricStructHead {
+  struct MetricStruct *head;
+  struct MetricStruct *last;
+  struct MetricStruct *lastUsed;
 };
 
 /**
@@ -161,6 +168,13 @@ void insert_metric(struct MetricStruct *NewMetric);
  *			   Print the list with all EMM values, used to debug
  */
 void print_metric();
+
+/**
+ * \brief      Print the count of EMM's reads from the .txt to the current node
+ *
+ *			   Print the count of all EMM values, used to debug or info
+ */
+void count_metric();
 
 #endif /* COLLECT_LINK_ESTIMATE_H */
 /** @} */

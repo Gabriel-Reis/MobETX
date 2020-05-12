@@ -62,7 +62,8 @@
 #include <stdlib.h>
 
 int mem_b = 0;
-struct MetricStruct *Metrics = NULL;
+struct MetricStructHead *Metrics = NULL;
+
 
 /*---------------------------------------------------------------------------*/
 void
@@ -154,6 +155,7 @@ void
 read_estimated_mobility_metric()
 {
   FILE *arq;  
+  // int count = 0;
   arq = fopen("../../../core/net/emm.txt","r");/* /home/user/contiki/core/net */
   if(arq == NULL) {
     PRINTF("EMM.txt ERRO AO LER ARQUIVO\n");
@@ -161,18 +163,22 @@ read_estimated_mobility_metric()
   else{
     PRINTF("EMM.txt lido com sucesso\n");
     //Adicionar variáveis para características lidas do arquivo txt
-    int id,m1,m2;
-    while(fscanf(arq, "%d %d %d",&id,&m1,&m2)!=EOF){
+    int id,m1,m2,time;
+    while(fscanf(arq, "%d %d %d %d",&id,&m1,&m2,&time)!=EOF){
      if(id == ( linkaddr_node_addr.u8[0]+linkaddr_node_addr.u8[1]*10) ){
+      // count++;
       struct MetricStruct *NewMetric=(struct MetricStruct*)malloc(sizeof(struct MetricStruct));
       //Calculate te EMM in the next line
       NewMetric->emm = m1+m2;
+      NewMetric->time = time;
       NewMetric->next = NULL;
-      PRINTF("EMM: %d + %d = %.0f   \n",m1,m2,NewMetric->emm);
+      //PRINTF("EMM: %d + %d = %.0f\n",m1,m2,NewMetric->emm);
       insert_metric(NewMetric);
     }
   }
-  print_metric();
+  // PRINTF("COUNT: %d",count);
+  //print_metric();
+  count_metric();
   mem_b = 1;
 }
 fclose(arq);
@@ -183,6 +189,7 @@ estimated_mobility_metric() /* CORRIGIR ESTA FUNÇÃO*/
 {
   if(mem_b == 0)
     read_estimated_mobility_metric();
+  //PRINTF("TIME: %d \n",clock_seconds());
   //int id = rimeaddr_node_addr.u8[0];
   return (0);
 }
@@ -191,23 +198,46 @@ void
 insert_metric(struct MetricStruct *NewMetric)
 {
   if(Metrics != NULL){
-    struct MetricStruct *aux = Metrics;
-    for(aux = Metrics;aux->next != NULL ;aux = aux->next){} //Chega ao fim da lista
-    aux->next = NewMetric;
+    // struct MetricStruct *aux = Metrics->head;
+    Metrics->last->next = NewMetric;
+    Metrics->last = NewMetric;
+    //for(aux = Metrics;aux->next != NULL ;aux = aux->next){} //Chega ao fim da lista
+    //  aux->next = NewMetric;
   }
-  else
-    Metrics = NewMetric;
+  else{
+    Metrics = (struct MetricStructHead*)malloc(sizeof(struct MetricStructHead));
+    Metrics->head = NewMetric;
+    Metrics->last = NewMetric;
+    Metrics->lastUsed = NULL;
+  }
+    //Metrics = NewMetric;
 }
 /*---------------------------------------------------------------------------*/
 void
 print_metric(){
   if(Metrics != NULL){
+    int count = 0;
     struct MetricStruct *aux;
-    PRINTF("EMM.txt: ");
-    for(aux = Metrics;aux != NULL ;aux = aux->next)
-      PRINTF("- %.2f -",aux->emm);
+    PRINTF("EMM.txt :");
+    for(aux = Metrics->head;aux != NULL ;aux = aux->next){
+      PRINTF("-%.2f-",aux->emm);
+    }
     PRINTF("\n");
   }
   else
-    PRINTF("EMM:   VECTOR NULL \n");
+    PRINTF("EMM.txt VECTOR NULL \n");
+}
+
+void
+count_metric(){
+  if(Metrics != NULL){
+    int count = 0;
+    struct MetricStruct *aux;
+    for(aux = Metrics->head;aux != NULL ;aux = aux->next){
+      count++;
+    }
+    PRINTF("EMM.txt TOTAL: %d \n",count);
+  }
+  else
+    PRINTF("EMM.txt: VECTOR NULL \n");
 }
