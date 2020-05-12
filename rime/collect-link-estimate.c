@@ -95,7 +95,7 @@ collect_link_estimate_update_tx(struct collect_link_estimate *le, uint8_t tx)
       le->num_estimates++;
     }
 
-    int emm = estimated_mobility_metric()* COLLECT_LINK_ESTIMATE_UNIT;
+    int emm = estimated_mobility_metric();
     le->etx_accumulator = (((uint32_t)tx * COLLECT_LINK_ESTIMATE_UNIT) *
      COLLECT_LINK_ESTIMATE_ALPHA +
      le->etx_accumulator * (COLLECT_LINK_ESTIMATE_UNIT -
@@ -105,7 +105,7 @@ collect_link_estimate_update_tx(struct collect_link_estimate *le, uint8_t tx)
     int mobetx = emm+le->etx_accumulator;
     
     //id: rimeaddr_node_addr.u8[0], rimeaddr_node_addr.u8[1]
-    PRINTF("ETX ===  %u EMM == %d MOBETX==%u\n",le->etx_accumulator, emm, mobetx);
+    PRINTF("ETX ===  %u EMM == %d TIME==%d MOBETX==%u\n",le->etx_accumulator, emm, clock_seconds(), mobetx);
     //le->etx_accumulator;
 
   }
@@ -166,17 +166,14 @@ read_estimated_mobility_metric()
     int id,m1,m2,time;
     while(fscanf(arq, "%d %d %d %d",&id,&m1,&m2,&time)!=EOF){
      if(id == ( linkaddr_node_addr.u8[0]+linkaddr_node_addr.u8[1]*10) ){
-      // count++;
       struct MetricStruct *NewMetric=(struct MetricStruct*)malloc(sizeof(struct MetricStruct));
       //Calculate te EMM in the next line
       NewMetric->emm = m1+m2;
       NewMetric->time = time;
       NewMetric->next = NULL;
-      //PRINTF("EMM: %d + %d = %.0f\n",m1,m2,NewMetric->emm);
       insert_metric(NewMetric);
     }
   }
-  // PRINTF("COUNT: %d",count);
   //print_metric();
   count_metric();
   mem_b = 1;
@@ -185,13 +182,25 @@ fclose(arq);
 }
 /*---------------------------------------------------------------------------*/
 int
-estimated_mobility_metric() /* CORRIGIR ESTA FUNÇÃO*/
+estimated_mobility_metric()
 {
   if(mem_b == 0)
     read_estimated_mobility_metric();
+  
+  struct MetricStruct *aux;
+  if(Metrics->lastUsed == NULL)
+    aux = Metrics->head;
+  else
+    aux = Metrics->lastUsed; 
+
+  while(aux->next != NULL && aux->next->time <= clock_seconds())
+    aux = aux->next;
+
+  Metrics->lastUsed = aux;
+  return aux->emm;
+
   //PRINTF("TIME: %d \n",clock_seconds());
   //int id = rimeaddr_node_addr.u8[0];
-  return (0);
 }
 /*---------------------------------------------------------------------------*/
 void
