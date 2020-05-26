@@ -156,7 +156,8 @@ read_estimated_mobility_metric()
 {
   FILE *arq;  
   // int count = 0;
-  arq = fopen("../../../core/net/emm.txt","r");/* /home/user/contiki/core/net */
+  char arq_path[30] = "../../../core/net/emm.txt";
+  arq = fopen(arq_path,"r");/* /home/user/contiki/core/net */
   if(arq == NULL) {
     PRINTF("EMM.txt ERRO AO LER ARQUIVO\n");
   }
