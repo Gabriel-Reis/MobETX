@@ -159,10 +159,10 @@ read_estimated_mobility_metric()
   char arq_path[30] = "../../../core/net/emm.txt";
   arq = fopen(arq_path,"r");/* /home/user/contiki/core/net */
   if(arq == NULL) {
-    PRINTF("EMM.txt ERRO AO LER ARQUIVO\n");
+    PRINTF("EMM > ERRO AO LER ARQUIVO\n");
   }
   else{
-    PRINTF("EMM.txt lido com sucesso\n");
+    PRINTF("EMM > lido com sucesso\n");
     //Adicionar variáveis para características lidas do arquivo txt
     int id,m1,m2,time,i;
     char string[50];
@@ -226,14 +226,14 @@ print_metric(){
   if(Metrics != NULL){
     int count = 0;
     struct MetricStruct *aux;
-    PRINTF("EMM.txt :");
+    PRINTF("EMM > :");
     for(aux = Metrics->head;aux != NULL ;aux = aux->next){
       PRINTF("-%.2f-",aux->emm);
     }
     PRINTF("\n");
   }
   else
-    PRINTF("EMM.txt VECTOR NULL \n");
+    PRINTF("EMM > VECTOR NULL \n");
 }
 
 void
@@ -244,8 +244,8 @@ count_metric(){
     for(aux = Metrics->head;aux != NULL ;aux = aux->next){
       count++;
     }
-    PRINTF("EMM.txt TOTAL: %d \n",count);
+    PRINTF("EMM > TOTAL: %d \n",count);
   }
   else
-    PRINTF("EMM.txt: VECTOR NULL \n");
+    PRINTF("EMM > VECTOR NULL \n");
 }
