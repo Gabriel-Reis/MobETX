@@ -71,6 +71,7 @@ PROCESS_THREAD(example_collect_process, ev, data)
   static struct etimer periodic;
   static struct etimer et;
   static struct etimer stats;
+  int minutes = 15;
 
   PROCESS_BEGIN();
 
@@ -95,7 +96,7 @@ while(1) {
   }
 
   if(etimer_expired(&stats)) {
-    etimer_set(&stats, CLOCK_SECOND*60*15);
+    etimer_set(&stats, CLOCK_SECOND*60*minutes);
     collect_print_stats();
   }
 
