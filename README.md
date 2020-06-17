@@ -1,8 +1,6 @@
 The Contiki Operating System
 ============================
 
-[![Build Status](https://travis-ci.org/contiki-os/contiki.svg?branch=master)](https://travis-ci.org/contiki-os/contiki/branches)
-
 Contiki is an open source operating system that runs on tiny low-power
 microcontrollers and makes it possible to develop applications that
 make efficient use of the hardware while providing standardized
@@ -14,6 +12,18 @@ power meters, industrial monitoring, radiation monitoring,
 construction site monitoring, alarm systems, remote house monitoring,
 and so on.
 
-For more information, see the Contiki website:
+============================
 
-[http://contiki-os.org](http://contiki-os.org)
+Examples
+Bonnmotion SWIM:
+	./bm -f NOMEAQUI SWIM -n 10 -x 100 -y 100 -r 0.1 -m 1 -c 0.5 -e 0.45 -u 4 -d 1000
+Bonnmotion Statistics:
+	./bm Statistics -f NOMEAQUI -r 0.1
+Contiki:
+	ant run
+
+Paths:
+	Contiki:
+		/contiki/tools/cooja
+	Bonnmotion:
+		/contiki/bonnmotion-3.0.1/bin
