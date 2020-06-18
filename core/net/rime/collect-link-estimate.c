@@ -95,6 +95,7 @@ collect_link_estimate_update_tx(struct collect_link_estimate *le, uint8_t tx)
       le->num_estimates++;
     }
 
+    // int emm = 0;
     int emm = estimated_mobility_metric();
     le->etx_accumulator = (((uint32_t)tx * COLLECT_LINK_ESTIMATE_UNIT) *
      COLLECT_LINK_ESTIMATE_ALPHA +
@@ -105,7 +106,7 @@ collect_link_estimate_update_tx(struct collect_link_estimate *le, uint8_t tx)
     int mobetx = emm+le->etx_accumulator;
     
     //id: rimeaddr_node_addr.u8[0], rimeaddr_node_addr.u8[1]
-    PRINTF("ETX ===  %u EMM == %d TIME==%d MOBETX==%u\n",le->etx_accumulator, emm, clock_seconds(), mobetx);
+    PRINTF("DEBUG: ETX ===  %u EMM == %d TIME==%d MOBETX==%u\n",le->etx_accumulator, emm, clock_seconds(), mobetx);
     //le->etx_accumulator;
     //collect_print_stats();
   }
@@ -159,10 +160,10 @@ read_estimated_mobility_metric()
   char arq_path[30] = "../../../core/net/emm.txt";
   arq = fopen(arq_path,"r");/* /home/user/contiki/core/net */
   if(arq == NULL) {
-    PRINTF("EMM > ERRO AO LER ARQUIVO\n");
+    PRINTF("DEBUG: ERRO AO LER ARQUIVO EMM\n");   
   }
   else{
-    PRINTF("EMM > lido com sucesso\n");
+    //PRINTF("DEBUG: Lido com sucesso EMM\n");
     //Adicionar variáveis para características lidas do arquivo txt
     int id,m1,m2,time,i;
     char string[50];
@@ -171,7 +172,9 @@ read_estimated_mobility_metric()
       fgets(string, 50, arq);
 
     while(fscanf(arq, "%d %d %d %d",&id,&m1,&m2,&time)!=EOF){
+      //PRINTF("DEBUG: WHILE\n");
       if(id == ( linkaddr_node_addr.u8[0]+linkaddr_node_addr.u8[1]*10) ){
+        //PRINTF("DEBUG: WHILE -- IF\n");
         struct MetricStruct *NewMetric=(struct MetricStruct*)malloc(sizeof(struct MetricStruct));
       //Calculate te EMM in the next line
         NewMetric->emm = m1+m2;
@@ -180,7 +183,7 @@ read_estimated_mobility_metric()
         insert_metric(NewMetric);
       }
     }
-  //print_metric();
+    //print_metric();
     count_metric();
     mem_b = 1;
   }
@@ -190,30 +193,47 @@ read_estimated_mobility_metric()
 int
 estimated_mobility_metric()
 {
-  if(mem_b == 0)
+  if(mem_b == 0){
     read_estimated_mobility_metric();
+    //PRINTF("DEBUG: if mem_b\n");
+  }
 
-  struct MetricStruct *aux;
-  if(Metrics->lastUsed == NULL)
-    aux = Metrics->head;
-  else
-    aux = Metrics->lastUsed; 
+  if(Metrics != NULL){
+    count_metric();
+    struct MetricStruct *aux;
+    if(Metrics->lastUsed == NULL)
+      aux = Metrics->head;
+    else
+      aux = Metrics->lastUsed; 
 
-  while(aux->next != NULL && aux->next->time <= clock_seconds())
-    aux = aux->next;
+    while(aux->next != NULL && aux->next->time <= clock_seconds())
+      aux = aux->next;
 
-  Metrics->lastUsed = aux;
-  return aux->emm;
+    Metrics->lastUsed = aux;
+    return aux->emm;
+  }
+  else if (mem_b == 1){
+    PRINTF("DEBUG: NODE DONT HAVE EMM IN TXT\n");
+    return 0;
+  }
+  else{
+    PRINTF("DEBUG: ERRO EM read_estimated_mobility_metric()\n");
+    return 0;
+  }
+  return 0; 
 }
 /*---------------------------------------------------------------------------*/
 void
 insert_metric(struct MetricStruct *NewMetric)
 {
+  //PRINTF("DEBUG: INSERT_METRIC\n");
   if(Metrics != NULL){
+    //PRINTF("DEBUG: INSERT_METRIC - IF\n");
     Metrics->last->next = NewMetric;
     Metrics->last = NewMetric;
   }
   else{
+    //PRINTF("DEBUG: INSERT_METRIC - ELSE\n");
     Metrics = (struct MetricStructHead*)malloc(sizeof(struct MetricStructHead));
     Metrics->head = NewMetric;
     Metrics->last = NewMetric;
@@ -222,30 +242,16 @@ insert_metric(struct MetricStruct *NewMetric)
 }
 /*---------------------------------------------------------------------------*/
 void
-print_metric(){
-  if(Metrics != NULL){
-    int count = 0;
-    struct MetricStruct *aux;
-    PRINTF("EMM > :");
-    for(aux = Metrics->head;aux != NULL ;aux = aux->next){
-      PRINTF("-%.2f-",aux->emm);
-    }
-    PRINTF("\n");
-  }
-  else
-    PRINTF("EMM > VECTOR NULL \n");
-}
-
-void
 count_metric(){
+  PRINTF("DEBUG: EMM > Contagem \n");
   if(Metrics != NULL){
     int count = 0;
     struct MetricStruct *aux;
     for(aux = Metrics->head;aux != NULL ;aux = aux->next){
       count++;
     }
-    PRINTF("EMM > TOTAL: %d \n",count);
+    PRINTF("DEBUG: EMM > TOTAL: %d \n",count);
   }
   else
-    PRINTF("EMM > VECTOR NULL \n");
+    PRINTF("DEBUG: EMM > VECTOR NULL \n");
 }
