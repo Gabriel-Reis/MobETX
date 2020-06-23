@@ -84,7 +84,18 @@ public class Statistics extends App {
 	protected static double temporalDependenceC = 100;
 
 	public Statistics(String[] args) throws FileNotFoundException, IOException {
+		// Get current time
+		long start = System.currentTimeMillis();
 		go(args);
+		// Get elapsed time in milliseconds
+		long elapsedTimeMillis = System.currentTimeMillis()-start;
+		// Get elapsed time in seconds
+		float elapsedTimeSec = elapsedTimeMillis/1000F;
+		// Get elapsed time in minutes
+		float elapsedTimeMin = elapsedTimeMillis/(60*1000F);
+
+		// System.out.println("time = "+elapsedTimeMin+"m:"+elapsedTimeSec+"s");
+		System.out.println("time total= "+elapsedTimeSec+"s");
 	}
 
 	public void go(String[] _args) throws FileNotFoundException, IOException {
@@ -564,6 +575,7 @@ public class Statistics extends App {
 /*HERE*/int linksDone = 0;
 /*HERE*/int numlinked[][] = new int[node.length][node.length];
 /*HERE*/int numlinkedVet[]= new int[node.length];
+/*HERE*/double avgSpeed[]= new double[node.length];
 /*HERE*/for (int a = 0;a<node.length;a++) {
 			linkbreaksVet[a] = 0;
 		}
@@ -574,8 +586,11 @@ public class Statistics extends App {
 
 		// calculate average node speed
 		double averageSpeed = 0;
+		double temp = 0;
 		for (int i = 0; i < node.length; i++) {
-			averageSpeed += averageSpeed(i, s);	
+			temp = averageSpeed(i, s);
+			averageSpeed += temp;	
+			avgSpeed[i] = temp;
 		}
 		averageSpeed = averageSpeed / node.length;
 	
@@ -889,6 +904,12 @@ public class Statistics extends App {
 		stats.println("\n\n\n Connection count (by node)				-   DONE");
 		for (int i = 0; i < node.length; i++) {
 			stats.print("Node " +i +" - " + numlinkedVet[i] +"\t");
+			stats.println();
+		}
+
+		stats.println("\n\n\n AVG SPEED (by node)						-   DONE");
+		for (int i = 0; i < node.length; i++) {
+			stats.print("Node " +i +" - " + avgSpeed[i] +"\t");
 			stats.println();
 		}
 

@@ -1343,6 +1343,7 @@ public class Cooja extends Observable {
         gui.setSimulation(newSim, false);
         return newSim;
       } catch (Exception e) {
+      	//logger.info(config.getAbsolutePath());
         logger.fatal("Exception when loading simulation: ", e);
         return null;
       }
