@@ -27,6 +27,9 @@ Contiki:
 ```sh 
 ant run
 ```
+```sh 
+ant run_bigmem
+```
 
 #### Paths
 Contiki:
