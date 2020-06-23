@@ -1,0 +1,14 @@
+model=SWIM
+ignore=3600.0
+randomSeed=1592456773632
+x=300.0
+y=300.0
+duration=500.0
+nn=10
+circular=false
+J=2D
+nodeRadius=0.1
+cellDistanceWeight=0.0
+nodeSpeedMultiplier=1.0
+waitingTimeExponent=0.0
+waitingTimeUpperBound=0.0
