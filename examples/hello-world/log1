@@ -1,0 +1,48 @@
+[2020-06-23 22:10:33] hello-world-example: FAIL
+-- NO TEST INFO AVAILABLE (hello-world-example.info) --
+-- NO TEST OUTPUT AVAILABLE (hello-world-example.log) --
+-- COOJA OUTPUT (tail hello-world-example.cooja_log) --
+[22:10:37 - main] [Cooja.java:1347] [FATAL] - Exception when loading simulation: 
+org.contikios.cooja.Cooja$SimulationCreationException: Mote type creation error: Could not load mote type class: org.contikios.cooja.mspmote.SkyMoteType
+	at org.contikios.cooja.Cooja.loadSimulationConfig(Cooja.java:3459)
+	at org.contikios.cooja.Cooja.loadSimulationConfig(Cooja.java:3371)
+	at org.contikios.cooja.Cooja.quickStartSimulationConfig(Cooja.java:1339)
+	at org.contikios.cooja.Cooja.main(Cooja.java:3249)
+Caused by: org.contikios.cooja.MoteType$MoteTypeCreationException: Could not load mote type class: org.contikios.cooja.mspmote.SkyMoteType
+	at org.contikios.cooja.Simulation.setConfigXML(Simulation.java:684)
+	at org.contikios.cooja.Cooja.loadSimulationConfig(Cooja.java:3441)
+	... 3 more
+
+
+[2020-06-23 22:13:20] hello-world-example: FAIL
+-- NO TEST INFO AVAILABLE (hello-world-example.info) --
+-- NO TEST OUTPUT AVAILABLE (hello-world-example.log) --
+-- COOJA OUTPUT (tail hello-world-example.cooja_log) --
+[22:13:24 - main] [Cooja.java:1347] [FATAL] - Exception when loading simulation: 
+org.contikios.cooja.Cooja$SimulationCreationException: Mote type creation error: Could not load mote type class: org.contikios.cooja.mspmote.SkyMoteType
+	at org.contikios.cooja.Cooja.loadSimulationConfig(Cooja.java:3459)
+	at org.contikios.cooja.Cooja.loadSimulationConfig(Cooja.java:3371)
+	at org.contikios.cooja.Cooja.quickStartSimulationConfig(Cooja.java:1339)
+	at org.contikios.cooja.Cooja.main(Cooja.java:3249)
+Caused by: org.contikios.cooja.MoteType$MoteTypeCreationException: Could not load mote type class: org.contikios.cooja.mspmote.SkyMoteType
+	at org.contikios.cooja.Simulation.setConfigXML(Simulation.java:684)
+	at org.contikios.cooja.Cooja.loadSimulationConfig(Cooja.java:3441)
+	... 3 more
+
+
+[2020-06-23 22:15:21] teste: FAIL
+-- NO TEST INFO AVAILABLE (teste.info) --
+-- NO TEST OUTPUT AVAILABLE (teste.log) --
+-- COOJA OUTPUT (tail teste.cooja_log) --
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1047)
+	at java.lang.Runtime.exec(Runtime.java:617)
+	at org.contikios.cooja.dialogs.CompileContiki.compile(CompileContiki.java:147)
+	... 8 more
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.forkAndExec(Native Method)
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:186)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:130)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1028)
+	... 10 more
+
+

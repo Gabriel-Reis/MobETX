@@ -1,0 +1,34 @@
+[2020-06-24 05:42:39] teste: FAIL
+-- NO TEST INFO AVAILABLE (teste.info) --
+-- NO TEST OUTPUT AVAILABLE (teste.log) --
+-- COOJA OUTPUT (tail teste.cooja_log) --
+[05:43:38 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[05:43:38 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[05:43:38 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[05:43:38 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[05:43:41 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.SimControl
+[05:43:41 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.Visualizer
+[05:43:41 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.LogListener
+[05:43:41 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.TimeLine
+[05:43:41 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.Notes
+[05:43:41 - main] [Cooja.java:3283] [FATAL] - No plugin controlling simulation, aborting
+
+
+[2020-06-24 05:50:00] teste: FAIL
+-- NO TEST INFO AVAILABLE (teste.info) --
+-- NO TEST OUTPUT AVAILABLE (teste.log) --
+-- COOJA OUTPUT (tail teste.cooja_log) --
+[05:50:12 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[05:50:12 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[05:50:12 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[05:50:12 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.SimControl
+[05:50:12 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.Visualizer
+[05:50:12 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.LogListener
+[05:50:13 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.TimeLine
+[05:50:13 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.Notes
+[05:50:13 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.SimControl
+[05:50:13 - main] [Cooja.java:3283] [FATAL] - No plugin controlling simulation, aborting
+
+
+[2020-06-24 05:51:29] teste: OK
+

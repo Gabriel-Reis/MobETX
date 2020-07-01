@@ -582,7 +582,8 @@ public class Statistics extends App {
 		Vector<Double> linkDurations = new Vector<Double>();
 
 		// get temporal dependence
-		double D_temporal = getAverageDegreeOfTemporalDependence(node, s);
+		// double D_temporal = getAverageDegreeOfTemporalDependence(node, s);
+		double D_temporal = 1;
 
 		// calculate average node speed
 		double averageSpeed = 0;

@@ -1,0 +1,68 @@
+[22:15:23 - main] [Cooja.java:1324] [INFO] - > Starting Cooja
+[22:15:23 - main] [Cooja.java:2866] [INFO] - External tools default settings: /external_tools_linux.config
+[22:15:23 - main] [Cooja.java:2896] [INFO] - External tools user settings: /home/user/.cooja.user.properties
+[22:15:23 - main] [Cooja.java:4268] [WARN] - Replaced [CONTIKI_DIR]/tools/cooja/apps/mrm with /home/user/tools/cooja/apps/mrm (default: ../../..), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:23 - main] [ProjectConfig.java:240] [WARN] - Trying to import non-existant project configuration: /home/user/tools/cooja/apps/mrm/cooja.config
+[22:15:23 - main] [Cooja.java:4268] [WARN] - Replaced [CONTIKI_DIR]/tools/cooja/apps/mspsim with /home/user/tools/cooja/apps/mspsim (default: ../../..), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:23 - main] [ProjectConfig.java:240] [WARN] - Trying to import non-existant project configuration: /home/user/tools/cooja/apps/mspsim/cooja.config
+[22:15:23 - main] [Cooja.java:4268] [WARN] - Replaced [CONTIKI_DIR]/tools/cooja/apps/avrora with /home/user/tools/cooja/apps/avrora (default: ../../..), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:23 - main] [ProjectConfig.java:240] [WARN] - Trying to import non-existant project configuration: /home/user/tools/cooja/apps/avrora/cooja.config
+[22:15:23 - main] [Cooja.java:4268] [WARN] - Replaced [CONTIKI_DIR]/tools/cooja/apps/serial_socket with /home/user/tools/cooja/apps/serial_socket (default: ../../..), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:23 - main] [ProjectConfig.java:240] [WARN] - Trying to import non-existant project configuration: /home/user/tools/cooja/apps/serial_socket/cooja.config
+[22:15:23 - main] [Cooja.java:4268] [WARN] - Replaced [CONTIKI_DIR]/tools/cooja/apps/collect-view with /home/user/tools/cooja/apps/collect-view (default: ../../..), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:23 - main] [ProjectConfig.java:240] [WARN] - Trying to import non-existant project configuration: /home/user/tools/cooja/apps/collect-view/cooja.config
+[22:15:23 - main] [Cooja.java:4268] [WARN] - Replaced [CONTIKI_DIR]/tools/cooja/apps/powertracker with /home/user/tools/cooja/apps/powertracker (default: ../../..), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:23 - main] [ProjectConfig.java:240] [WARN] - Trying to import non-existant project configuration: /home/user/tools/cooja/apps/powertracker/cooja.config
+[22:15:23 - main] [Cooja.java:4268] [WARN] - Replaced [CONTIKI_DIR]/tools/cooja/apps/mobility with /home/user/tools/cooja/apps/mobility (default: ../../..), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:23 - main] [ProjectConfig.java:240] [WARN] - Trying to import non-existant project configuration: /home/user/tools/cooja/apps/mobility/cooja.config
+[22:15:23 - main] [Cooja.java:445] [FATAL] - Error when loading extensions: Error when loading extension: Project directory does not exist: /home/user/tools/cooja/apps/mrm
+org.contikios.cooja.Cooja$ParseProjectsException: Error when loading extension: Project directory does not exist: /home/user/tools/cooja/apps/mrm
+	at org.contikios.cooja.Cooja.reparseProjectConfig(Cooja.java:1537)
+	at org.contikios.cooja.Cooja.<init>(Cooja.java:443)
+	at org.contikios.cooja.Cooja.quickStartSimulationConfig(Cooja.java:1329)
+	at org.contikios.cooja.Cooja.main(Cooja.java:3249)
+Caused by: java.io.FileNotFoundException: Project directory does not exist: /home/user/tools/cooja/apps/mrm
+	at org.contikios.cooja.ProjectConfig.appendProjectDir(ProjectConfig.java:142)
+	at org.contikios.cooja.Cooja.reparseProjectConfig(Cooja.java:1535)
+	... 3 more
+[22:15:23 - main] [Cooja.java:4268] [WARN] - Replaced [APPS_DIR]/mrm with /home/user/tools/cooja/apps/mrm (default: ../../../tools/cooja/apps), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:23 - main] [Cooja.java:4268] [WARN] - Replaced [APPS_DIR]/mspsim with /home/user/tools/cooja/apps/mspsim (default: ../../../tools/cooja/apps), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:23 - main] [Cooja.java:4268] [WARN] - Replaced [APPS_DIR]/avrora with /home/user/tools/cooja/apps/avrora (default: ../../../tools/cooja/apps), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:23 - main] [Cooja.java:4268] [WARN] - Replaced [APPS_DIR]/serial_socket with /home/user/tools/cooja/apps/serial_socket (default: ../../../tools/cooja/apps), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:23 - main] [Cooja.java:4268] [WARN] - Replaced [APPS_DIR]/collect-view with /home/user/tools/cooja/apps/collect-view (default: ../../../tools/cooja/apps), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:23 - main] [Cooja.java:4268] [WARN] - Replaced [APPS_DIR]/powertracker with /home/user/tools/cooja/apps/powertracker (default: ../../../tools/cooja/apps), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:23 - main] [Cooja.java:4268] [WARN] - Replaced [APPS_DIR]/mobility with /home/user/tools/cooja/apps/mobility (default: ../../../tools/cooja/apps), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:24 - main] [Simulation.java:420] [INFO] - Simulation random seed: 123456
+[22:15:24 - main] [Cooja.java:4268] [WARN] - Replaced [CONTIKI_DIR]/examples/hello-world/hello-world.c with /home/user/examples/hello-world/hello-world.c (default: ../../..), but could not find it. This does not have to be an error, as the file might be created later.
+[22:15:24 - main] [CompileContiki.java:140] [INFO] - > make hello-world.cooja TARGET=cooja 
+[22:15:24 - main] [ContikiMoteType.java:352] [FATAL] - >> 
+[22:15:24 - main] [ContikiMoteType.java:352] [FATAL] - >> > make hello-world.cooja TARGET=cooja 
+[22:15:24 - main] [ContikiMoteType.java:355] [FATAL] - Compilation error: Compilation error: Cannot run program "make" (in directory "/home/user/examples/hello-world"): error=2, No such file or directory
+[22:15:24 - main] [Cooja.java:1347] [FATAL] - Exception when loading simulation: 
+org.contikios.cooja.Cooja$SimulationCreationException: Mote type creation error: Mote type creation failed: Compilation error: Cannot run program "make" (in directory "/home/user/examples/hello-world"): error=2, No such file or directory
+	at org.contikios.cooja.Cooja.loadSimulationConfig(Cooja.java:3459)
+	at org.contikios.cooja.Cooja.loadSimulationConfig(Cooja.java:3371)
+	at org.contikios.cooja.Cooja.quickStartSimulationConfig(Cooja.java:1339)
+	at org.contikios.cooja.Cooja.main(Cooja.java:3249)
+Caused by: org.contikios.cooja.MoteType$MoteTypeCreationException: Mote type creation failed: Compilation error: Cannot run program "make" (in directory "/home/user/examples/hello-world"): error=2, No such file or directory
+	at org.contikios.cooja.contikimote.ContikiMoteType.configureAndInit(ContikiMoteType.java:341)
+	at org.contikios.cooja.contikimote.ContikiMoteType.setConfigXML(ContikiMoteType.java:1335)
+	at org.contikios.cooja.Simulation.setConfigXML(Simulation.java:689)
+	at org.contikios.cooja.Cooja.loadSimulationConfig(Cooja.java:3441)
+	... 3 more
+Caused by: org.contikios.cooja.MoteType$MoteTypeCreationException: Compilation error: Cannot run program "make" (in directory "/home/user/examples/hello-world"): error=2, No such file or directory
+	at org.contikios.cooja.dialogs.CompileContiki.compile(CompileContiki.java:277)
+	at org.contikios.cooja.dialogs.CompileContiki.compile(CompileContiki.java:100)
+	at org.contikios.cooja.contikimote.ContikiMoteType.configureAndInit(ContikiMoteType.java:330)
+	... 6 more
+Caused by: java.io.IOException: Cannot run program "make" (in directory "/home/user/examples/hello-world"): error=2, No such file or directory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1047)
+	at java.lang.Runtime.exec(Runtime.java:617)
+	at org.contikios.cooja.dialogs.CompileContiki.compile(CompileContiki.java:147)
+	... 8 more
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.forkAndExec(Native Method)
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:186)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:130)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1028)
+	... 10 more
