@@ -1,34 +1,42 @@
-[2020-06-24 05:42:39] teste: FAIL
--- NO TEST INFO AVAILABLE (teste.info) --
--- NO TEST OUTPUT AVAILABLE (teste.log) --
--- COOJA OUTPUT (tail teste.cooja_log) --
-[05:43:38 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
-[05:43:38 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
-[05:43:38 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
-[05:43:38 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
-[05:43:41 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.SimControl
-[05:43:41 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.Visualizer
-[05:43:41 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.LogListener
-[05:43:41 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.TimeLine
-[05:43:41 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.Notes
-[05:43:41 - main] [Cooja.java:3283] [FATAL] - No plugin controlling simulation, aborting
+[2020-07-01 03:11:33] rimecollect_5nodes_static: FAIL
+-- NO TEST INFO AVAILABLE (rimecollect_5nodes_static.info) --
+-- TEST OUTPUT (tail rimecollect_5nodes_static.log) --
+waiting for hello world output from mote 1
+last msg: 2.0: nothing on queue
+TEST TIMEOUT
+TEST FAILED
+Test ended at simulation time: 100000000
+-- COOJA OUTPUT (tail rimecollect_5nodes_static.cooja_log) --
+[03:11:40 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[03:11:40 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[03:11:40 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[03:11:40 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[03:11:40 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.SimControl
+[03:11:40 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.Visualizer
+[03:11:41 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.LogListener
+[03:11:41 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.TimeLine
+[03:11:41 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.Notes
+[03:11:41 - main] [Cooja.java:3283] [FATAL] - No plugin controlling simulation, aborting
 
 
-[2020-06-24 05:50:00] teste: FAIL
--- NO TEST INFO AVAILABLE (teste.info) --
--- NO TEST OUTPUT AVAILABLE (teste.log) --
--- COOJA OUTPUT (tail teste.cooja_log) --
-[05:50:12 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
-[05:50:12 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
-[05:50:12 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
-[05:50:12 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.SimControl
-[05:50:12 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.Visualizer
-[05:50:12 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.LogListener
-[05:50:13 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.TimeLine
-[05:50:13 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.Notes
-[05:50:13 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.SimControl
-[05:50:13 - main] [Cooja.java:3283] [FATAL] - No plugin controlling simulation, aborting
+[2020-07-01 03:22:15] rimecollect_5nodes_static: FAIL
+-- NO TEST INFO AVAILABLE (rimecollect_5nodes_static.info) --
+-- TEST OUTPUT (tail rimecollect_5nodes_static.log) --
+waiting for hello world output from mote 1
+last msg: Sink got message from 1.0, seqno 166, hops 0: len 6 'Hello'
+TEST TIMEOUT
+TEST FAILED
+Test ended at simulation time: 99999000000
+-- COOJA OUTPUT (tail rimecollect_5nodes_static.cooja_log) --
+[03:23:46 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 70.00%, done in 35.7 sec
+[03:23:53 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 75.00%, done in 30.2 sec
+[03:23:59 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 80.00%, done in 24.0 sec
+[03:24:05 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 85.00%, done in 18.0 sec
+[03:24:09 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 90.00%, done in 11.7 sec
+[03:24:15 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 95.00%, done in 5.9 sec
+[03:24:21 - Thread-4] [LogScriptEngine.java:375] [INFO] - Timeout event @ 99999000000
+[03:24:21 - Thread-3] [LogScriptEngine.java:309] [INFO] - Test script finished
+[03:24:21 - Thread-4] [Simulation.java:311] [INFO] - Simulation main loop stopped, system time: 1593584661211	Duration: 117806 ms	Simulated time 99999000 ms	Ratio 848.844710795715
+[03:24:21 - AWT-EventQueue-0] [ScriptRunner.java:429] [INFO] - Test script deactivated
 
-
-[2020-06-24 05:51:29] teste: OK
 
