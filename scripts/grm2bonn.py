@@ -10,7 +10,7 @@ import os
 
 # In[64]:
 print("Starting...")
-fileName = "trace"
+fileName = "trace_grm_100"
 BonnMotionPath = "../bonnmotion-3.0.1/bin/"
 
 # parsing grm raw data

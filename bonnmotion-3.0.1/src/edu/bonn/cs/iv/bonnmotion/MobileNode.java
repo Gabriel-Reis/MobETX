@@ -539,6 +539,7 @@ public class MobileNode {
                                 }
                                 else if (max - t0 > 0.001) {
                                 	System.out.println("MobileNode.pairStatistics: sanity check failed (2)");
+                                    System.out.println("-------------max=" + max + " t0=" + t0+" min-t0 = "+(max - t0));
                                     System.out.println("t0: " + t0 + ", t1: " + t1);
                                     System.out.println("min: " + min + ", d: " + d + ", max: " + max);
                                     System.out.println("last disconnect at " + changes.lastElement());

@@ -4,30 +4,37 @@ import datetime
 import gzip
 import os
 
+print("Starting...")
 #Import .csv
-fileName = "trace_grm_100"
+fileName = "trace"
 # BonnMotionPath = ""
 BonnMotionPath = "../bonnmotion-3.0.1/bin/"
-data = pd.read_csv(""+fileName+".csv", names =  ['time', 'id', 'x', 'y'], sep = ' ')
+data = pd.read_csv("../traces/"+fileName+".csv", names =  ['time', 'id', 'x', 'y'], sep = ' ')
+print("CSV read...")
 
-#Remove ids <=0
-data.drop(data[data.id<=0].index, inplace=True)
-#ADD node 0, in center of space
-new_row = pd.DataFrame({"time":[0], "id":[0], "x":data['x'].max(), "y":data['x'].max()})
-data = data.append(new_row, ignore_index=True)
 #Change Cols
 data = data.loc[:,['id', 'time', 'x', 'y']]
+# data = data[['id', 'time', 'x', 'y']]
+timemin = data['time'].min()
+#Remove ids <=0
+data.drop(data[data.id<=0].index, inplace=True)
+# data.drop(data[data.id>=10].index, inplace=True)
+
+#ADD node 0, in center of space
+new_row = pd.DataFrame({"time":[0], "id":[0], "x":data['x'].max()/2, "y":data['x'].max()/2})
+data = data.append(new_row, ignore_index=True)
+
 #Order DF
-data.sort(by=['time'], inplace=True)
+data.sort(['time'], inplace=True)
 #Remove duplicates
 data = data.drop_duplicates(['id', 'time']) # same node in more than one position.
 
 #Save -cooja.csv
-data.to_csv(""+fileName+"-cooja.csv", sep = ' ', index=False, header=False )
+data.to_csv("../traces/"+fileName+"-cooja.csv", sep = ' ', index=False, header=False )
 print("1/6 DONE")
 
 #Prepare Bonnmotion Movements
-input_file = ""+fileName+"-cooja.csv"
+input_file = "../traces/"+fileName+"-cooja.csv"
 output_file = os.path.basename(input_file)[:-3] + "movements"
 node_info = {}
 
@@ -45,13 +52,13 @@ with open(input_file, "r") as infile:
 print("2/6 DONE")
 
 # Writing movements (Bonnmotion)
-with open("" + output_file, "w") as outfile:
+with open("../traces/" + output_file, "w") as outfile:
     for node in sorted(node_info.keys()):
         outfile.write(''.join(str(e) for e in node_info[node])+"\n")
 print("3/6 DONE")
 
 # compacting movements
-with open("" + output_file, 'rb') as in_f:
+with open("../traces/" + output_file, 'rb') as in_f:
     dataMov = in_f.read()
     bindata = bytearray(dataMov)
     with gzip.open(BonnMotionPath + output_file + ".gz", "wb") as out_f:
@@ -84,14 +91,14 @@ with open(BonnMotionPath+fileName + "-cooja" + ".params", "w") as outfile:
 print("5/6 DONE")
 
 # Writing trace info
-with open(fileName + "-cooja" + ".info", "w") as outfile:
+with open("../traces/"+fileName + "-cooja" + ".info", "w") as outfile:
     outfile.write("model name = "+fileName+"\n")
     outfile.write("x = "+str(x)+"\n")
     outfile.write("max x = "+str(data['x'].max())+"\n")
     outfile.write("y = "+str(y)+"\n")
     outfile.write("max y = "+str(data['y'].max())+"\n")
     outfile.write("duration = "+str(data['time'].max())+"\n")
-    m, s = divmod(data['time'].nsmallest(2).iloc[1], 60)
+    m, s = divmod(timemin, 60)
     h, m = divmod(m, 60)
     d, h = divmod(h, 24)
     outfile.write("first move before node 1 = "+'{:d}d{:d}:{:02d}:{:02d}'.format(d, h, m, s)+"s\n")
