@@ -97,3 +97,7 @@ contiki-cc2530dk.lib
 *.csv
 *.movements
 *.o
+
+bonnmotion-3.0.1/bin/*.params
+bonnmotion-3.0.1/bin/*.gz
+*.cooja-log

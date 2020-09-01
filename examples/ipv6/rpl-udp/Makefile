@@ -2,6 +2,9 @@ all: udp-client udp-server
 APPS=servreg-hack
 CONTIKI=../../..
 
+# APPS += collect-view
+# PROJECT_SOURCEFILES += collect-common.c
+
 ifdef WITH_COMPOWER
 APPS+=powertrace
 CFLAGS+= -DCONTIKIMAC_CONF_COMPOWER=1 -DWITH_COMPOWER=1 -DQUEUEBUF_CONF_NUM=4

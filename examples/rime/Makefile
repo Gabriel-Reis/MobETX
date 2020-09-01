@@ -1,5 +1,10 @@
 CONTIKI = ../..
 
+APPS += collect-view
+APPS += serial-shell powertrace collect-view
+# APPS += powertrace collect-view
+PROJECT_SOURCEFILES += collect-common.c
+
 all: example-abc example-mesh example-collect example-trickle example-polite \
      example-rudolph1 example-rudolph2 example-rucb \
      example-runicast example-unicast example-neighbors

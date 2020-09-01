@@ -104,8 +104,10 @@ PROCESS_THREAD(udp_server_process, ev, data)
   PROCESS_BEGIN();
 
   PROCESS_PAUSE();
-
+  
+  #if PLATFORM_HAS_BUTTON
   SENSORS_ACTIVATE(button_sensor);
+  #endif
 
   PRINTF("UDP server started\n");
 

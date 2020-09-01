@@ -62,11 +62,12 @@
 struct collect_link_estimate {
   uint32_t etx_accumulator;
   uint8_t num_estimates;
+  double emm;
 };
 
 //PERSONAL STRUCTS
 struct MetricStruct {
-  float emm;
+  double emm;
   int time;
   struct MetricStruct *next;
 };
@@ -150,7 +151,8 @@ void read_estimated_mobility_metric();
  * \return     The current EMM value
  *
  */
-int estimated_mobility_metric();
+double return_estimated_mobility_metric(struct collect_link_estimate *le);
+double estimated_mobility_metric();
 
 
 /**

@@ -563,7 +563,16 @@ public class Statistics extends App {
 				"\"total links\"", "\"avg. relative speed\"", "\"avg. path availability\"",
 				"\"avg. number of link changes\""};
 
-
+/*HERE*/File file = new File("../../core/net/emm.txt");
+		try{
+			FileWriter fw = new FileWriter(file, false);
+			PrintWriter pw = new PrintWriter(fw);
+			pw.print("");
+			pw.close();
+		} catch (IOException e) {
+     		e.printStackTrace();
+     	}
+/*HERE*/double timeCTRL = 0;
 		String values[][] = new String[radius.length][metrics.length];
 /*HERE*/int linkbreaksVet[] = new int[node.length];
 /*HERE*/double degree[] = new double[node.length];
@@ -754,6 +763,17 @@ public class Statistics extends App {
 					if (pSize[i] > 0)
 						partDeg += (double)(pSize[i] * (node.length - pSize[i]));
 				tOld = tNew;
+
+
+				if(tNew-timeCTRL>=1200){
+					timeCTRL = tNew;
+	/*HERE*/		PersonalStatsToFile(file,timelinkedVet,numlinkedVet,tNew,node.length,s);
+	// /*HERE*/		PersonalStatsToFileNEW(file,values,avgSpeed,tNew,node.length);
+					
+				}
+// HERE		System.out.println(file,timelinkedVet,avgSpeed,numlinkedVet,timetNew);
+
+
 			}
 			System.err.println();
 			double expDuration = timeToLinkBreak / (double)linkbreaks;
@@ -822,122 +842,198 @@ public class Statistics extends App {
 		// stats.println("Media de grau dos nós: " +AvgDegree/node.length);
 
 
-		// Duração dos links por par
-		stats.println("\n\n\n LinkDurations (node pair)					-   DONE");
-		for (int i = 0; i < node.length; i++) {
-			for (int j = 0; j < node.length; j++) {
-				stats.print(timelinked[i][j] +"\t");
-			}
-			stats.println();
-		}
+		// // Duração dos links por par
+		// stats.println("\n\n\n LinkDurations (node pair)					-   DONE");
+		// for (int i = 0; i < node.length; i++) {
+		// 	for (int j = 0; j < node.length; j++) {
+		// 		stats.print(timelinked[i][j] +"\t");
+		// 	}
+		// 	stats.println();
+		// }
 
 
-		// Duração dos links por nó
-		stats.println("\n\n\nFull LinkDurations (by node)				-   DONE");
-		for (int i = 0; i < timelinkedVet.length; i++) {
-			stats.println(i +" - " +timelinkedVet[i]);
-		}
+		// // Duração dos links por nó
+		// stats.println("\n\n\nFull LinkDurations (by node)				-   DONE");
+		// for (int i = 0; i < timelinkedVet.length; i++) {
+		// 	stats.println(i +" - " +timelinkedVet[i]);
+		// }
 
 
-		// Numero de links quebrados por par
-		stats.println("\n\n\nNumber of connection breaks (node pair) 	-   DONE");
-		for (int i = 0; i < node.length; i++) {
-			for (int j = 0; j < node.length; j++) {
-				stats.print(linkPairbreaks[i][j] +"\t");
-			}
-			stats.println();	
-		}
+		// // Numero de links quebrados por par
+		// stats.println("\n\n\nNumber of connection breaks (node pair) 	-   DONE");
+		// for (int i = 0; i < node.length; i++) {
+		// 	for (int j = 0; j < node.length; j++) {
+		// 		stats.print(linkPairbreaks[i][j] +"\t");
+		// 	}
+		// 	stats.println();	
+		// }
 
 
-		// Numero de links quebrados por nó
-		stats.println("\n\n\nNumber of Connection breaks (by node)		-   DONE");
-		int acc_total_breaks = 0;
-		for (int i = 0; i < node.length; i++) {
-			acc_total_breaks += linkbreaksVet[i];
-			stats.print("Node " +i +" - " + linkbreaksVet[i]);
-			stats.println();	
-		}
+		// // Numero de links quebrados por nó
+		// stats.println("\n\n\nNumber of Connection breaks (by node)		-   DONE");
+		// int acc_total_breaks = 0;
+		// for (int i = 0; i < node.length; i++) {
+		// 	acc_total_breaks += linkbreaksVet[i];
+		// 	stats.print("Node " +i +" - " + linkbreaksVet[i]);
+		// 	stats.println();	
+		// }
 		
-		// Total de links quebrados e feitos
-		stats.print("Total breaks: " + acc_total_breaks/2);
-		stats.println();	
-		stats.print("Total de links: " + linksDone);
+		// // Total de links quebrados e feitos
+		// stats.print("Total breaks: " + acc_total_breaks/2);
+		// stats.println();	
+		// stats.print("Total de links: " + linksDone);
 		
 
 
-		stats.println("\n\n\nTime to link breaks (node pair)			-   DONE");
-		for (int i = 0; i < timelinkbreaks.length; i++) {
-			for (int j = 0; j < timelinkbreaks[i].length; j++) {
-				stats.print(timelinkbreaks[i][j] +"\t");
-			}
-			stats.println();
-		}
+		// stats.println("\n\n\nTime to link breaks (node pair)			-   DONE");
+		// for (int i = 0; i < timelinkbreaks.length; i++) {
+		// 	for (int j = 0; j < timelinkbreaks[i].length; j++) {
+		// 		stats.print(timelinkbreaks[i][j] +"\t");
+		// 	}
+		// 	stats.println();
+		// }
 		
-		//Média de tempo dos links por nó (list)
-		stats.println("\n\n\nAVG link duration (by node)				-   DONE");
-		// total conection coluna / total links coluna
-		for (int i = 0; i < node.length; i++) {
-			stats.print("Node " +i +" - " + (timelinkedVet[i]/linkbreaksVet[i]) +"\t");
-			stats.println();	
-		}
+		// //Média de tempo dos links por nó (list)
+		// stats.println("\n\n\nAVG link duration (by node)				-   DONE");
+		// // total conection coluna / total links coluna
+		// for (int i = 0; i < node.length; i++) {
+		// 	stats.print("Node " +i +" - " + (timelinkedVet[i]/linkbreaksVet[i]) +"\t");
+		// 	stats.println();	
+		// }
 
 
-		stats.println("\n\n\nTime to link breaks (by node)				-   DONE");
-		for (int i = 0; i < timelinkbreaksVet.length; i++) {
-			stats.print("Node " +i +" - " + timelinkbreaksVet[i]+"\t");
-			stats.println();
-		}
+		// stats.println("\n\n\nTime to link breaks (by node)				-   DONE");
+		// for (int i = 0; i < timelinkbreaksVet.length; i++) {
+		// 	stats.print("Node " +i +" - " + timelinkbreaksVet[i]+"\t");
+		// 	stats.println();
+		// }
 
 
-		//Quantidade de conexões feitas
-		stats.println("\n\n\n Connection count (node pair)				-   DONE");
-		int links = 0;
-		for (int i = 0; i < node.length; i++) {
-			for (int j = 0; j < node.length; j++) {
-				stats.print(numlinked[i][j] +"\t");
-				links += numlinked[i][j];
-			}
-			stats.println();
-		}
+		// //Quantidade de conexões feitas
+		// stats.println("\n\n\n Connection count (node pair)				-   DONE");
+		// int links = 0;
+		// for (int i = 0; i < node.length; i++) {
+		// 	for (int j = 0; j < node.length; j++) {
+		// 		stats.print(numlinked[i][j] +"\t");
+		// 		links += numlinked[i][j];
+		// 	}
+		// 	stats.println();
+		// }
 
 
-		//Quantidade de conexões feitas
-		stats.println("\n\n\n Connection count (by node)				-   DONE");
-		for (int i = 0; i < node.length; i++) {
-			stats.print("Node " +i +" - " + numlinkedVet[i] +"\t");
-			stats.println();
-		}
+		// //Quantidade de conexões feitas
+		// stats.println("\n\n\n Connection count (by node)				-   DONE");
+		// for (int i = 0; i < node.length; i++) {
+		// 	stats.print("Node " +i +" - " + numlinkedVet[i] +"\t");
+		// 	stats.println();
+		// }
 
-		stats.println("\n\n\n AVG SPEED (by node)						-   DONE");
-		for (int i = 0; i < node.length; i++) {
-			stats.print("Node " +i +" - " + avgSpeed[i] +"\t");
-			stats.println();
-		}
+		// stats.println("\n\n\n AVG SPEED (by node)						-   DONE");
+		// for (int i = 0; i < node.length; i++) {
+		// 	stats.print("Node " +i +" - " + avgSpeed[i] +"\t");
+		// 	stats.println();
+		// }
+
+		// stats.println("\n\n\n Number of link changes(by node)			-   DONE");
+
 
 		stats.close();
+
+		// link duration (by node)
+		// AVG node speed
+		// qnt de links
+
+		// FINAL:
+		//id duration qnt speed
+		// try {
+		// 	File file = new File("../../core/net/emm.txt");
+	 //    	FileWriter fw = new FileWriter(file, true);
+	 //    	PrintWriter pw = new PrintWriter(fw);
+	 //    	for(int i=0; i<node.length; i++){
+	 //    		if(i==0)
+	 //    			pw.println(""+i+" "+timelinkedVet[i]+" 0.0 "+numlinkedVet[i]);	
+		//     	else
+		//     		pw.println(""+i+" "+timelinkedVet[i]+" "+avgSpeed[i]+" "+numlinkedVet[i]);
+	 //    	}
+	 //    	pw.close();
+	 //    } catch (IOException e) {
+  //    		e.printStackTrace();
+  //    	}
+	  
+		// link duration (by node)
+		// AVG node speed
+		// qnt de links
+
+		// FINAL:
+		//id duration qnt speed
 	}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	/***
+	* Print atual statistics for this time and each node
+	* File syntax: "Node Time LinkDuraton AvgSpeed LinkCount"
+	*
+	* @param file to write 
+	* @param link duration 
+	* @param AVG speed
+	* @param Link count
+	* @param Atual time of simulation
+	* @param Total of nodes
+	**/
+	private static void PersonalStatsToFile(File file, double timelinkedVet[], int numlinkedVet[],double time,int NumNodes, Scenario s){
+		try {
+			// File file = new File("../../core/net/emm.txt");
+	    	FileWriter fw = new FileWriter(file, true);
+	    	PrintWriter pw = new PrintWriter(fw);
+	    	String ToFile = "";
+	    	for(int i=0; i<NumNodes; i++){
+	    		Double speed = LimitedaverageSpeed(i,s,time);
+	    		ToFile+= ""+i+" "+(int)time+" "+timelinkedVet[i]+" "+speed+" "+numlinkedVet[i]+"\n";
+		    	// pw.println(""+i+" "+(int)time+" "+timelinkedVet[i]+" "+avgSpeed[i]+" "+numlinkedVet[i]);
+	    	}
+	    	pw.print(ToFile);
+	    	pw.close();
+	    } catch (IOException e) {
+     		e.printStackTrace();
+     	}
+	}
+
+	// private static void PersonalStatsToFileNEW(File file, String values[][], int numlinkedVet[],double time,int NumNodes){
+	// 	try {
+	// 		// File file = new File("../../core/net/emm.txt");
+	//     	FileWriter fw = new FileWriter(file, true);
+	//     	PrintWriter pw = new PrintWriter(fw);
+	//     	String ToFile = "";
+	//     	for(int i=0; i<NumNodes; i++){
+	//     		if(i==0)
+	//     			ToFile+=""+i+" "+(int)time+" "+values[i][8]+" 0.0 "+"\n";
+	//     			// pw.println(""+i+" "+(int)time+" "+timelinkedVet[i]+" 0.0 "+numlinkedVet[i]);	
+	// 	    	else
+	//     			ToFile+= ""+i+" "+(int)time+" "+values[i][8]+" "+values[i][10]"\n";
+	// 	    		// pw.println(""+i+" "+(int)time+" "+timelinkedVet[i]+" "+avgSpeed[i]+" "+numlinkedVet[i]);
+	//     	}
+	//     	pw.print(ToFile);
+	//     	pw.close();
+	//     } catch (IOException e) {
+ //     		e.printStackTrace();
+ //     	}
+	// }
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	/**
 	 * Checks if there is a path between each pair of nodes and adds that to the available array.
 	 * 
 	 * @param nodes The number of nodes
@@ -1013,6 +1109,30 @@ public class Statistics extends App {
 
 		for (int i = 0; i < numWaypoints; i++) {
 			actual = node.getWaypoint(i);
+			distance += actual.pos.distance(last.pos);
+			time += actual.time - last.time;
+			last = actual;
+		}
+
+		return distance / time;
+	}
+	protected static double LimitedaverageSpeed(int nodeIdx, Scenario s,double Limitedtime) {
+		double distance = 0;
+		double time = 0;
+
+		MobileNode node = s.getNode(nodeIdx);
+		int numWaypoints = node.getNumWaypoints();
+
+		Waypoint last = node.getWaypoint(0);
+		Waypoint actual;
+
+		if(numWaypoints == 1){
+			return 0.0;
+		}
+		for (int i = 0; i < numWaypoints; i++) {
+			actual = node.getWaypoint(i);
+			if(actual.time > Limitedtime)
+				break;
 			distance += actual.pos.distance(last.pos);
 			time += actual.time - last.time;
 			last = actual;

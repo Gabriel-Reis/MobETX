@@ -418,8 +418,8 @@ public class MobileNode {
                 double dzn = n1.z - n2.z; // distance z at t1
                 double c1 = (dxn - dxo) / dt;
                 double c0 = (dxo * t1 - dxn * t0) / dt;
-                double d1 = (dyn - dyo) / dt;
-                double d0 = (dyo * t1 - dyn * t0) / dt;
+                double d1 = (dyn - dyo) / dt; //vel.
+                double d0 = (dyo * t1 - dyn * t0) / dt; //acel. -> movimento relativo entre os nos ****************
                 double e1 = (dzn - dzo) / dt;
                 double e0 = (dzo * t1 - dzn * t0) / dt;
 
@@ -450,7 +450,7 @@ public class MobileNode {
                 }
 
                 if (nodes_on) {
-                    on_time = on_time + dt;
+                    on_time = on_time + dt; //link duration ********************
                 }
 
                 if ((c1 != 0.0) || (d1 != 0.0) || e1 != 0.0) { // we have relative movement

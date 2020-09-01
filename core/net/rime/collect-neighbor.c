@@ -42,6 +42,7 @@
  * @{
  */
 
+#include <inttypes.h>
 #include <limits.h>
 #include <stdio.h>
 
@@ -397,6 +398,7 @@ collect_neighbor_rtmetric_link_estimate(struct collect_neighbor *n)
   if(n == NULL) {
     return 0;
   }
+  // PRINTF("ETX FULL 401: %" PRIu16,collect_link_estimate(&n->le));
   return n->rtmetric + collect_link_estimate(&n->le);
 }
 /*---------------------------------------------------------------------------*/
@@ -407,7 +409,9 @@ collect_neighbor_rtmetric(struct collect_neighbor *n)
     return 0;
   }
 
-  return n->rtmetric;
+  // PRINTF("ETX FULL 412: %" PRIu16,collect_link_estimate(&n->le));
+  return n->rtmetric + collect_link_estimate(&n->le);
+  // return n->rtmetric;
 }
 /*---------------------------------------------------------------------------*/
 void
