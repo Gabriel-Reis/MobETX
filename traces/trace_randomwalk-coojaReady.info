@@ -1,0 +1,9 @@
+model name = ../traces/trace_randomwalk
+x = 1005
+max x = 1000.0
+y = 1005
+max y = 1000.0
+duration = 86400.0
+first move = 0.0
+last move = 86400.0
+nodes = 100

@@ -1,0 +1,9 @@
+model name = ../traces/trace_randomwalkwaypoint
+x = 1004
+max x = 999.933654785
+y = 1004
+max y = 999.87878418
+duration = 86400.0
+first move = 0.0
+last move = 86400.0
+nodes = 100

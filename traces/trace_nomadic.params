@@ -1,0 +1,16 @@
+model=Nomadic
+ignore=3600.0
+randomSeed=1592425885904
+x=800.0
+y=800.0
+duration=86400.0
+nn=100
+circular=false
+J=2D
+avgMobileNodesPerGroup=3.0
+groupSizeDeviation=5.0
+maxdist=50.0
+refmaxpause=60.0
+minspeed=0.1
+maxspeed=4.1
+maxpause=600.0

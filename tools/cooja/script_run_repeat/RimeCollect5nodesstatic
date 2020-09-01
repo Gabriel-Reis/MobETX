@@ -1,0 +1,138 @@
+[2020-07-01 06:14:27] rimecollect_5nodes_static: FAIL
+-- NO TEST INFO AVAILABLE (rimecollect_5nodes_static.info) --
+-- TEST OUTPUT (tail rimecollect_5nodes_static.log) --
+waiting for hello world output from mote 1
+last msg: 2.0: nothing on queue
+TEST TIMEOUT
+TEST FAILED
+Test ended at simulation time: 100000000
+-- COOJA OUTPUT (tail rimecollect_5nodes_static.cooja_log) --
+[06:14:41 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 70.00%, done in 0.4 sec
+[06:14:41 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 75.00%, done in 0.3 sec
+[06:14:41 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 80.00%, done in 0.2 sec
+[06:14:41 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 85.00%, done in 0.2 sec
+[06:14:41 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 90.00%, done in 0.1 sec
+[06:14:41 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 95.00%, done in 0.1 sec
+[06:14:41 - Thread-4] [LogScriptEngine.java:375] [INFO] - Timeout event @ 100000000
+[06:14:41 - Thread-3] [LogScriptEngine.java:309] [INFO] - Test script finished
+[06:14:41 - Thread-4] [Simulation.java:311] [INFO] - Simulation main loop stopped, system time: 1593576881522	Duration: 1024 ms	Simulated time 100000 ms	Ratio 97.65625
+[06:14:42 - AWT-EventQueue-0] [ScriptRunner.java:429] [INFO] - Test script deactivated
+
+
+[2020-07-01 06:15:10] rimecollect_5nodes_static: FAIL
+-- NO TEST INFO AVAILABLE (rimecollect_5nodes_static.info) --
+-- TEST OUTPUT (tail rimecollect_5nodes_static.log) --
+waiting for hello world output from mote 1
+last msg: 2.0: nothing on queue
+TEST TIMEOUT
+TEST FAILED
+Test ended at simulation time: 100000000
+-- COOJA OUTPUT (tail rimecollect_5nodes_static.cooja_log) --
+[06:15:19 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 70.00%, done in 0.3 sec
+[06:15:19 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 75.00%, done in 0.2 sec
+[06:15:19 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 80.00%, done in 0.2 sec
+[06:15:19 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 85.00%, done in 0.1 sec
+[06:15:19 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 90.00%, done in 0.1 sec
+[06:15:19 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 95.00%, done in 0.0 sec
+[06:15:19 - Thread-4] [LogScriptEngine.java:375] [INFO] - Timeout event @ 100000000
+[06:15:19 - Thread-3] [LogScriptEngine.java:309] [INFO] - Test script finished
+[06:15:19 - Thread-4] [Simulation.java:311] [INFO] - Simulation main loop stopped, system time: 1593576919959	Duration: 684 ms	Simulated time 100000 ms	Ratio 146.19883040935673
+[06:15:20 - AWT-EventQueue-0] [ScriptRunner.java:429] [INFO] - Test script deactivated
+
+
+[2020-07-01 06:16:41] rimecollect_5nodes_static: FAIL
+-- NO TEST INFO AVAILABLE (rimecollect_5nodes_static.info) --
+-- TEST OUTPUT (tail rimecollect_5nodes_static.log) --
+waiting for hello world output from mote 1
+last msg: 2.0: nothing on queue
+TEST TIMEOUT
+TEST FAILED
+Test ended at simulation time: 100000000
+-- COOJA OUTPUT (tail rimecollect_5nodes_static.cooja_log) --
+[06:16:51 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 70.00%, done in 0.3 sec
+[06:16:51 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 75.00%, done in 0.3 sec
+[06:16:51 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 80.00%, done in 0.2 sec
+[06:16:51 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 85.00%, done in 0.1 sec
+[06:16:51 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 90.00%, done in 0.1 sec
+[06:16:51 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 95.00%, done in 0.0 sec
+[06:16:51 - Thread-4] [LogScriptEngine.java:375] [INFO] - Timeout event @ 100000000
+[06:16:51 - Thread-3] [LogScriptEngine.java:309] [INFO] - Test script finished
+[06:16:51 - Thread-4] [Simulation.java:311] [INFO] - Simulation main loop stopped, system time: 1593577011100	Duration: 835 ms	Simulated time 100000 ms	Ratio 119.76047904191617
+[06:16:51 - AWT-EventQueue-0] [ScriptRunner.java:429] [INFO] - Test script deactivated
+
+
+[2020-07-01 06:26:57] rimecollect_5nodes_static: FAIL
+-- NO TEST INFO AVAILABLE (rimecollect_5nodes_static.info) --
+-- TEST OUTPUT (tail rimecollect_5nodes_static.log) --
+waiting for hello world output from mote 1
+last msg: 2.0: nothing on queue
+TEST TIMEOUT
+TEST FAILED
+Test ended at simulation time: 100000000
+-- COOJA OUTPUT (tail rimecollect_5nodes_static.cooja_log) --
+[06:27:16 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[06:27:16 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[06:27:16 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[06:27:16 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[06:27:16 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.SimControl
+[06:27:16 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.Visualizer
+[06:27:16 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.LogListener
+[06:27:16 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.TimeLine
+[06:27:16 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.Notes
+[06:27:16 - main] [Cooja.java:3283] [FATAL] - No plugin controlling simulation, aborting
+
+
+[2020-07-01 06:27:53] rimecollect_5nodes_static: FAIL
+-- NO TEST INFO AVAILABLE (rimecollect_5nodes_static.info) --
+-- TEST OUTPUT (tail rimecollect_5nodes_static.log) --
+waiting for hello world output from mote 1
+last msg: 2.0: nothing on queue
+TEST TIMEOUT
+TEST FAILED
+Test ended at simulation time: 100000000
+-- COOJA OUTPUT (tail rimecollect_5nodes_static.cooja_log) --
+[06:28:00 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[06:28:00 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[06:28:00 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[06:28:00 - main] [ContikiRadio.java:385] [INFO] - Radio bitrate reconfigured to (kbps): 250.0
+[06:28:01 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.SimControl
+[06:28:01 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.Visualizer
+[06:28:01 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.LogListener
+[06:28:01 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.TimeLine
+[06:28:01 - main] [Cooja.java:1791] [INFO] - Visualized plugin was not started: class org.contikios.cooja.plugins.Notes
+[06:28:01 - main] [Cooja.java:3283] [FATAL] - No plugin controlling simulation, aborting
+
+
+[2020-07-02 16:16:59] rimecollect_5nodes_static: FAIL
+-- NO TEST INFO AVAILABLE (rimecollect_5nodes_static.info) --
+-- TEST OUTPUT (tail rimecollect_5nodes_static.log) --
+waiting for hello world output from mote 1
+last msg: Sink got message from 1.0, seqno 166, hops 0: len 6 'Hello'
+TEST TIMEOUT
+TEST FAILED
+Test ended at simulation time: 99999000000
+-- COOJA OUTPUT (tail rimecollect_5nodes_static.cooja_log) --
+[16:19:15 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 70.00%, done in 32.3 sec
+[16:19:20 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 75.00%, done in 26.7 sec
+[16:19:25 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 80.00%, done in 21.3 sec
+[16:19:32 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 85.00%, done in 16.3 sec
+[16:19:38 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 90.00%, done in 10.9 sec
+[16:19:42 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 95.00%, done in 5.4 sec
+[16:19:46 - Thread-4] [LogScriptEngine.java:375] [INFO] - Timeout event @ 99999000000
+[16:19:46 - Thread-3] [LogScriptEngine.java:309] [INFO] - Test script finished
+[16:19:46 - Thread-4] [Simulation.java:311] [INFO] - Simulation main loop stopped, system time: 1593717586311	Duration: 106119 ms	Simulated time 99999000 ms	Ratio 942.2667395360232
+[16:19:46 - AWT-EventQueue-0] [ScriptRunner.java:429] [INFO] - Test script deactivated
+
+
+[2020-07-02 16:34:54] rimecollect_5nodes_static: FAIL
+-- NO TEST INFO AVAILABLE (rimecollect_5nodes_static.info) --
+-- TEST OUTPUT (tail rimecollect_5nodes_static.log) --
+waiting for hello world output from mote 1
+last msg: Sink got message from 1.0, seqno 166, hops 0: len 6 'Hello'
+TEST TIMEOUT
+TEST FAILED
+Test ended at simulation time: 99999000000
+-- COOJA OUTPUT (tail rimecollect_5nodes_static.cooja_log) --
+[16:34:56 - main] [Cooja.java:1324] [INFO] - > Starting Cooja
+
+
